@@ -1,6 +1,6 @@
 const { defineConfig } = require("@vue/cli-service");
 const path = require("path");
-const svgPath = path.resolve(__dirname, "src/assets/icons");
+const svgPath = path.resolve(__dirname, "src/assets/svg");
 module.exports = defineConfig({
   transpileDependencies: true,
   chainWebpack(config) {
