@@ -1,0 +1,7 @@
+$menuText:#bfcbd9;
+
+
+// 导出变量，js与css共享变量
+:export{
+    menuText:$menuText;
+}
