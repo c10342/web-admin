@@ -13,7 +13,9 @@
         />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"><SvgIcon icon="eye" /> 登录</el-button>
+        <el-button :loading="loading" type="primary" @click="onLoginClick"
+          >登录</el-button
+        >
       </el-form-item>
     </el-form>
   </div>
@@ -21,10 +23,34 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 const loginForm = ref({
-  userName: "lisi",
-  password: "123",
+  userName: "super-admin",
+  password: "123456",
 });
+
+const loading = ref(false);
+const store = useStore();
+const router = useRouter();
+const onLoginClick = () => {
+  loading.value = true;
+  store
+    .dispatch("UserModule/login", {
+      userName: loginForm.value.userName,
+      password: loginForm.value.password,
+    })
+    .then(() => {
+      // todo
+    })
+    .catch(() => {
+      // todo
+    })
+    .finally(() => {
+      router.push("/");
+      loading.value = false;
+    });
+};
 </script>
 
 <style lang="scss" scoped>

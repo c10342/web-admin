@@ -7,6 +7,7 @@ import "element-plus/dist/index.css";
 import "./assets/styles/index.scss";
 import CustomComponent from "./components";
 import "./svg";
+import "./permission";
 
 createApp(App)
   .use(store)
