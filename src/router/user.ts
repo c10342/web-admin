@@ -11,7 +11,7 @@ const userRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "/user/permission",
-        name: userRouteName.user,
+        name: userRouteName.permission,
         component: () => import("@/views/permission-list/index.vue"),
       },
       {
