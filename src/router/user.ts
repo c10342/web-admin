@@ -8,21 +8,37 @@ const userRoutes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: "/user/manage",
     name: userRouteName.user,
+    meta: {
+      title: "user",
+      icon: "personnel",
+    },
     children: [
       {
         path: "/user/permission",
         name: userRouteName.permission,
         component: () => import("@/views/permission-list/index.vue"),
+        meta: {
+          title: "permissionList",
+          icon: "permission",
+        },
       },
       {
         path: "/user/role",
         name: userRouteName.role,
         component: () => import("@/views/role-list/index.vue"),
+        meta: {
+          title: "roleList",
+          icon: "role",
+        },
       },
       {
         path: "/user/manage",
         name: userRouteName.manage,
         component: () => import("@/views/user-manage/index.vue"),
+        meta: {
+          title: "userManage",
+          icon: "personnel-manage",
+        },
       },
       {
         path: "/user/info/:id",

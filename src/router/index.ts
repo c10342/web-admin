@@ -22,6 +22,7 @@ const publishRoutes: Array<RouteRecordRaw> = [
         path: "/profile",
         name: publishRouteName.profile,
         component: () => import("@/views/profile/index.vue"),
+        meta: { title: "profile", icon: "personnel" },
       },
       {
         path: "/404",

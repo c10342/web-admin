@@ -4,8 +4,13 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core";
 import Menu from "./menu.vue";
+
+export default defineComponent({
+  components: { Menu },
+});
 </script>
 
 <style lang="scss" scoped>
