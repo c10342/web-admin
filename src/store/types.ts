@@ -6,3 +6,8 @@ export interface UserData {
   [key: string]: any;
   token: string;
 }
+
+export interface AppData {
+  sliderBarOpened: boolean;
+  [key: string]: any;
+}

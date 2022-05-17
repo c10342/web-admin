@@ -1,11 +1,22 @@
 <template>
-  <i v-if="icon.includes('el-icon')" :class="icon"></i>
-  <SvgIcon v-else :icon="icon" />
-  <span class="menu-title">{{ title }}</span>
+  <i
+    class="menu-title-icon"
+    v-if="icon.includes('el-icon')"
+    :class="[icon, sliderBarOpened ? 'is-closed' : 'is-opened']"
+  ></i>
+  <div
+    v-else
+    :class="`${sliderBarOpened ? 'is-closed' : 'is-opened'} menu-title-icon`"
+  >
+    <SvgIcon :icon="icon" />
+  </div>
+
+  <span>{{ title }}</span>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   props: {
@@ -18,11 +29,22 @@ export default defineComponent({
       required: true,
     },
   },
+  setup() {
+    const store = useStore();
+    const sliderBarOpened = computed(() => {
+      return store.getters.sliderBarOpened;
+    });
+    return { sliderBarOpened };
+  },
 });
 </script>
 
 <style lang="scss">
-.menu-title {
-  margin-left: 16px;
+.menu-title-icon {
+  margin-right: 16px;
+  display: inline-block;
+  &.is-closed {
+    margin-right: 0;
+  }
 }
 </style>

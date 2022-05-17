@@ -1,5 +1,6 @@
 <template>
   <div class="nav-bar">
+    <Hamburger />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <el-avatar
@@ -22,13 +23,19 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { defineComponent } from "@vue/runtime-core";
 import { useStore } from "vuex";
 
-const store = useStore();
-const onLogout = () => {
-  store.dispatch("UserModule/logout");
-};
+export default defineComponent({
+  setup() {
+    const store = useStore();
+    const onLogout = () => {
+      store.dispatch("UserModule/logout");
+    };
+    return { onLogout };
+  },
+});
 </script>
 
 <style lang="scss">
