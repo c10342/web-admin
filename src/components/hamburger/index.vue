@@ -30,7 +30,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .hamburger-container {
   cursor: pointer;
-  line-height: 46px;
+  line-height: var(--nav-bar-height);
   height: 100%;
   float: left;
   cursor: pointer;

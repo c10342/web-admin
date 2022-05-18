@@ -1,6 +1,7 @@
 <template>
   <div class="nav-bar">
     <Hamburger />
+    <Breadcrumb />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <el-avatar
@@ -40,7 +41,7 @@ export default defineComponent({
 
 <style lang="scss">
 .nav-bar {
-  height: 50px;
+  height: var(--nav-bar-height);
   overflow: hidden;
   position: relative;
   background: #fff;
