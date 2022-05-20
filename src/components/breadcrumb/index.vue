@@ -3,10 +3,10 @@
     <transition-group name="fade">
       <template v-for="(item, index) in breadcrumbData" :key="item.path">
         <el-breadcrumb-item v-if="index === breadcrumbData.length">
-          {{ item.meta.title }}
+          {{ getText(item.meta.title) }}
         </el-breadcrumb-item>
         <el-breadcrumb-item v-else :to="{ path: item.path }">
-          {{ item.meta.title }}
+          {{ getText(item.meta.title) }}
         </el-breadcrumb-item>
       </template>
     </transition-group>
@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+import { getI18nText } from "@/utils/i18n";
 import { computed, defineComponent } from "vue";
 import { useRoute } from "vue-router";
 
@@ -23,8 +24,11 @@ export default defineComponent({
     const breadcrumbData = computed(() => {
       return route.matched.filter((item) => item.meta && item.meta.title);
     });
+
+    const getText: any = getI18nText("route");
     return {
       breadcrumbData,
+      getText,
     };
   },
 });

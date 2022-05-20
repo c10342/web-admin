@@ -3,6 +3,7 @@
     <Hamburger />
     <Breadcrumb />
     <div class="right-menu">
+      <LangSelect />
       <el-dropdown class="avatar-container" trigger="click">
         <el-avatar
           class="avatar-wrapper"

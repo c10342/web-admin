@@ -8,6 +8,7 @@ export default createStore<RootData>({
   getters: {
     token: (state) => state.UserModule.token,
     sliderBarOpened: (state) => state.AppModule.sliderBarOpened,
+    language: (state) => state.AppModule.language,
   },
   mutations: {},
   actions: {},

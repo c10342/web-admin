@@ -11,10 +11,11 @@
     <SvgIcon :icon="icon" />
   </div>
 
-  <span>{{ title }}</span>
+  <span>{{ getText(title) }}</span>
 </template>
 
 <script lang="ts">
+import { getI18nText } from "@/utils/i18n";
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
 
@@ -34,7 +35,8 @@ export default defineComponent({
     const sliderBarOpened = computed(() => {
       return store.getters.sliderBarOpened;
     });
-    return { sliderBarOpened };
+    const getText = getI18nText("route");
+    return { sliderBarOpened, getText };
   },
 });
 </script>

@@ -9,5 +9,6 @@ export interface UserData {
 
 export interface AppData {
   sliderBarOpened: boolean;
+  language: string;
   [key: string]: any;
 }

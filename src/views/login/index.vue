@@ -1,27 +1,34 @@
 <template>
   <div class="login-container">
     <el-form label-width="120px" class="login-form">
-      <h3 class="title">登录</h3>
-      <el-form-item label="账号">
-        <el-input placeholder="请输入账号" v-model="loginForm.userName" />
-      </el-form-item>
-      <el-form-item label="密码">
+      <h3 class="title">
+        {{ getText("title") }}
+        <LangSelect />
+      </h3>
+      <el-form-item :label="getText('username')">
         <el-input
-          placeholder="请输入密码"
+          :placeholder="getText('usernameRule')"
+          v-model="loginForm.userName"
+        />
+      </el-form-item>
+      <el-form-item :label="getText('password')">
+        <el-input
+          :placeholder="getText('passwordRule')"
           v-model="loginForm.password"
           type="password"
         />
       </el-form-item>
       <el-form-item>
-        <el-button :loading="loading" type="primary" @click="onLoginClick"
-          >登录</el-button
-        >
+        <el-button :loading="loading" type="primary" @click="onLoginClick">
+          {{ getText("loginBtn") }}
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { getI18nText } from "@/utils/i18n";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -33,6 +40,7 @@ const loginForm = ref({
 const loading = ref(false);
 const store = useStore();
 const router = useRouter();
+const getText = getI18nText("login");
 const onLoginClick = () => {
   loading.value = true;
   store
@@ -78,6 +86,11 @@ const onLoginClick = () => {
     :deep(.el-form-item__label) {
       color: #fff;
     }
+  }
+
+  :deep(.lang-select-container) {
+    margin-right: 0;
+    background-color: #fff;
   }
 }
 </style>
