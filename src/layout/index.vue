@@ -9,6 +9,7 @@
     >
       <div class="fix-header">
         <NavBar />
+        <TagsView />
       </div>
       <AppMain />
     </div>

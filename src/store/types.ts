@@ -7,8 +7,19 @@ export interface UserData {
   token: string;
 }
 
+export interface TagsViewItem {
+  fullPath: string;
+  meta: Record<string, any>;
+  name: string;
+  params: Record<string, any>;
+  path: string;
+  query: Record<string, any>;
+  title: string;
+}
+
 export interface AppData {
   sliderBarOpened: boolean;
   language: string;
+  tagsViewList: TagsViewItem[];
   [key: string]: any;
 }

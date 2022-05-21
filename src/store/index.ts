@@ -9,6 +9,7 @@ export default createStore<RootData>({
     token: (state) => state.UserModule.token,
     sliderBarOpened: (state) => state.AppModule.sliderBarOpened,
     language: (state) => state.AppModule.language,
+    tagsViewList: (state) => state.AppModule.tagsViewList,
   },
   mutations: {},
   actions: {},
