@@ -183,5 +183,9 @@ export default {
       editorSuccess: "Article modified successfully",
       sortSuccess: "Article ranking modified successfully",
     },
+    screenfull: {
+      enter: "enter screenfull",
+      exit: "exit screenfull",
+    },
   },
 };

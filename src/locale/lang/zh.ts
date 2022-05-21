@@ -183,5 +183,9 @@ export default {
       editorSuccess: "文章修改成功",
       sortSuccess: "文章排名修改成功",
     },
+    screenfull: {
+      enter: "进入全屏",
+      exit: "退出全屏",
+    },
   },
 };
