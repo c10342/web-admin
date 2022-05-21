@@ -3,6 +3,7 @@ import Hamburger from "@/components/hamburger/index.vue";
 import Breadcrumb from "@/components/breadcrumb/index.vue";
 import LangSelect from "@/components/lang-select/index.vue";
 import Screenfull from "@/components/screenfull/index.vue";
+import HeaderSearch from "@/components/header-search/index.vue";
 import { App } from "vue";
 
 const components: any = {
@@ -11,6 +12,7 @@ const components: any = {
   Breadcrumb,
   LangSelect,
   Screenfull,
+  HeaderSearch,
 };
 
 const install = (app: App) => {
