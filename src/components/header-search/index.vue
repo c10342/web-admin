@@ -33,6 +33,7 @@ import { FueSearchItem, generateRoutes } from "./fuse-data";
 import Fuse from "fuse.js";
 import { ElSelect } from "element-plus";
 import { watchLanguageSwitch } from "@/utils/i18n";
+import { useClickOutside } from "@/hooks/use-click-outside";
 
 export default defineComponent({
   setup() {
@@ -84,19 +85,11 @@ export default defineComponent({
       searchOptions.value = [];
       search.value = "";
     };
-    watch(isShow, () => {
-      // 点击body关闭搜索
-      if (isShow.value) {
-        document.addEventListener("click", onClose);
-      } else {
-        document.removeEventListener("click", onClose);
-      }
-    });
+    // 点击body关闭搜索
+    useClickOutside(isShow, onClose);
+
     watchLanguageSwitch(() => {
       fuse = initFuse();
-    });
-    onBeforeUnmount(() => {
-      document.removeEventListener("click", onClose);
     });
     return {
       search,

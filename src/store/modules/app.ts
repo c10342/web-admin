@@ -25,8 +25,18 @@ const AppModule: Module<AppData, RootData> = {
         setItem(TAGSVIEW, state.tagsViewList);
       }
     },
-    changeTagsView(state, data: { index: number; tag: TagsViewItem }) {
-      state.tagsViewList[data.index] = data.tag;
+    removeTagsView(state, { type, index }: { type: string; index: number }) {
+      if (type === "index") {
+        state.tagsViewList.splice(index, 1);
+      } else if (type === "other") {
+        state.tagsViewList = [state.tagsViewList[index]];
+      } else if (type === "right") {
+        state.tagsViewList.splice(
+          index + 1,
+          state.tagsViewList.length - index + 1
+        );
+      }
+      setItem(TAGSVIEW, state.tagsViewList);
     },
   },
 };

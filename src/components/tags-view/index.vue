@@ -1,31 +1,36 @@
 <template>
   <div class="tags-view-container">
     <router-link
-      v-for="tagsView in tagsViewList"
+      v-for="(tagsView, index) in tagsViewList"
       :key="tagsView.path"
       :to="tagsView.fullPath"
       class="tags-view-item"
       :class="{ active: isActive(tagsView.path) }"
+      @contextmenu.prevent="onContextMenu($event, index)"
     >
       {{ getText(tagsView.title) }}
       <el-icon
         v-if="!isActive(tagsView.path)"
         class="close-tags-view"
-        @click.prevent.stop="onClose"
+        @click.prevent.stop="onClose(index)"
       >
         <Close />
       </el-icon>
     </router-link>
+    <ContextMenu v-show="isShow" :style="style" :index="selectIndex" />
   </div>
 </template>
 
 <script lang="ts">
+import { useClickOutside } from "@/hooks/use-click-outside";
 import { getI18nText } from "@/utils/i18n";
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+import ContextMenu from "./context-menu.vue";
 
 export default defineComponent({
+  components: { ContextMenu },
   setup() {
     const route = useRoute();
     const store = useStore();
@@ -33,18 +38,42 @@ export default defineComponent({
     const tagsViewList = computed(() => {
       return store.getters.tagsViewList;
     });
-    const onClose = () => {
-      // todo
+    const onClose = (index: number) => {
+      store.commit("AppModule/removeTagsView", {
+        type: "index",
+        index,
+      });
     };
     const isActive = (path: string) => {
       return path === route.path;
     };
+    const style = ref<{ left: string | number; top: string | number }>({
+      left: 0,
+      top: 0,
+    });
+    const isShow = ref(false);
+    const selectIndex = ref(0);
+    const onContextMenu = (event: MouseEvent, index: number) => {
+      const { x, y } = event;
+      style.value.left = `${x}px`;
+      style.value.top = `${y}px`;
+      isShow.value = true;
+      selectIndex.value = index;
+    };
+    useClickOutside(isShow, () => {
+      console.log(11);
 
+      isShow.value = false;
+    });
     return {
       tagsViewList,
       onClose,
       isActive,
       getText,
+      onContextMenu,
+      isShow,
+      style,
+      selectIndex,
     };
   },
 });

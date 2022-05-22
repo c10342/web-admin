@@ -7,7 +7,7 @@
         sliderBarOpened ? 'main-container-closed' : 'main-container-opened'
       "
     >
-      <div class="fix-header">
+      <div class="fixed-header">
         <NavBar />
         <TagsView />
       </div>
