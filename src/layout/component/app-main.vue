@@ -1,6 +1,10 @@
 <template>
   <div class="app-main">
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade-transform" mode="out-in">
+        <component :is="Component" :key="route.path" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -56,5 +60,19 @@ export default defineComponent({
   overflow: hidden;
   padding: 104px 20px 20px 20px;
   box-sizing: border-box;
+
+  .fade-transform-leave-active,
+  .fade-transform-enter-active {
+    transition: all 0.5s;
+  }
+
+  .fade-transform-enter-form {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  .fade-transform-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
 }
 </style>
