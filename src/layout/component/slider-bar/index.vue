@@ -1,5 +1,6 @@
 <template>
   <div
+    id="slider-bar"
     class="slider-bar"
     :class="sliderBarOpened ? 'slider-bar-closed' : 'slider-bar-opened'"
   >

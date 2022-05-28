@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-container">
+  <div class="tags-view-container" id="tags-view">
     <router-link
       v-for="(tagsView, index) in tagsViewList"
       :key="tagsView.path"

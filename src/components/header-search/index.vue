@@ -1,5 +1,5 @@
 <template>
-  <div class="header-search" :class="{ show: isShow }">
+  <div class="header-search" :class="{ show: isShow }" id="search">
     <div class="icon-wrapper" @click.stop="onClick">
       <SvgIcon icon="search" />
     </div>

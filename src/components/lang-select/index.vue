@@ -3,6 +3,7 @@
     class="lang-select-container"
     trigger="click"
     @command="onLangSelect"
+    id="lang-select"
   >
     <el-tooltip effect="dark" :content="getText('lang')" placement="bottom">
       <div>

@@ -3,6 +3,7 @@
     <Hamburger />
     <Breadcrumb />
     <div class="right-menu">
+      <Guide />
       <HeaderSearch />
       <Screenfull />
       <LangSelect />

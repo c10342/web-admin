@@ -5,7 +5,7 @@
     placement="bottom"
     v-if="isEnabled"
   >
-    <div @click="onClick" class="screenfull">
+    <div @click="onClick" class="screenfull" id="screenfull">
       <SvgIcon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" />
     </div>
   </el-tooltip>

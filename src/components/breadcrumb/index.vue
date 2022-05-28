@@ -1,5 +1,5 @@
 <template>
-  <el-breadcrumb separator="/" class="breadcrumb-container">
+  <el-breadcrumb separator="/" class="breadcrumb-container" id="breadcrumb">
     <transition-group name="fade">
       <template v-for="(item, index) in breadcrumbData" :key="item.path">
         <el-breadcrumb-item v-if="index === breadcrumbData.length">

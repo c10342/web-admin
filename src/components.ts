@@ -5,6 +5,7 @@ import LangSelect from "@/components/lang-select/index.vue";
 import Screenfull from "@/components/screenfull/index.vue";
 import HeaderSearch from "@/components/header-search/index.vue";
 import TagsView from "@/components/tags-view/index.vue";
+import Guide from "@/components/guide/index.vue";
 import { App } from "vue";
 
 const components: any = {
@@ -15,6 +16,7 @@ const components: any = {
   Screenfull,
   HeaderSearch,
   TagsView,
+  Guide,
 };
 
 const install = (app: App) => {

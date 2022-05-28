@@ -1,5 +1,5 @@
 <template>
-  <span class="hamburger-container" @click="onClick">
+  <span class="hamburger-container" @click="onClick" id="hamburger">
     <SvgIcon :icon="icon" />
   </span>
 </template>
