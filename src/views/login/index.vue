@@ -41,23 +41,19 @@ const loading = ref(false);
 const store = useStore();
 const router = useRouter();
 const getText = getI18nText("login");
-const onLoginClick = () => {
+const onLoginClick = async () => {
   loading.value = true;
-  store
-    .dispatch("UserModule/login", {
+  try {
+    await store.dispatch("UserModule/login", {
       userName: loginForm.value.userName,
       password: loginForm.value.password,
-    })
-    .then(() => {
-      // todo
-    })
-    .catch(() => {
-      // todo
-    })
-    .finally(() => {
-      router.push("/");
-      loading.value = false;
     });
+    await store.dispatch("UserModule/getUserInfo");
+    router.push("/");
+    loading.value = false;
+  } catch (error) {
+    console.log(error);
+  }
 };
 </script>
 

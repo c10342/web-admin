@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import UserModule from "./modules/user";
 import AppModule from "./modules/app";
+import PermissionModule from "./modules/permission";
 import { RootData } from "./types";
 
 export default createStore<RootData>({
@@ -10,8 +11,9 @@ export default createStore<RootData>({
     sliderBarOpened: (state) => state.AppModule.sliderBarOpened,
     language: (state) => state.AppModule.language,
     tagsViewList: (state) => state.AppModule.tagsViewList,
+    userInfo: (state) => state.UserModule.userInfo,
   },
   mutations: {},
   actions: {},
-  modules: { UserModule, AppModule },
+  modules: { UserModule, AppModule, PermissionModule },
 });

@@ -5,8 +5,12 @@ import { publishRouteName } from "./route-name";
 import articleRoutes from "./article";
 import userRoutes from "./user";
 
+export const getPrivateRoutes = () => {
+  return [...articleRoutes, ...userRoutes];
+};
+
 // 公开路由
-const publishRoutes: Array<RouteRecordRaw> = [
+export const publishRoutes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: publishRouteName.login,
@@ -39,7 +43,7 @@ const publishRoutes: Array<RouteRecordRaw> = [
 ];
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...publishRoutes, ...articleRoutes, ...userRoutes],
+  routes: publishRoutes,
 });
 
 export default router;

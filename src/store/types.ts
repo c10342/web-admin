@@ -1,3 +1,5 @@
+import { RouteRecordRaw } from "vue-router";
+
 export interface RootData {
   [key: string]: any;
 }
@@ -5,6 +7,7 @@ export interface RootData {
 export interface UserData {
   [key: string]: any;
   token: string;
+  userInfo: any;
 }
 
 export interface TagsViewItem {
@@ -22,4 +25,8 @@ export interface AppData {
   language: string;
   tagsViewList: TagsViewItem[];
   [key: string]: any;
+}
+
+export interface PermissionData {
+  routes: RouteRecordRaw[];
 }

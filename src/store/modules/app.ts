@@ -1,5 +1,5 @@
 import { LANGUAGE, TAGSVIEW } from "@/constant";
-import { getItem, setItem } from "@/utils/storage";
+import { getItem, removeItem, setItem } from "@/utils/storage";
 import { Module } from "vuex";
 import { RootData, AppData, TagsViewItem } from "../types";
 
@@ -37,6 +37,10 @@ const AppModule: Module<AppData, RootData> = {
         );
       }
       setItem(TAGSVIEW, state.tagsViewList);
+    },
+    removeAll(state) {
+      state.tagsViewList = [];
+      removeItem(TAGSVIEW);
     },
   },
 };
